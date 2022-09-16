@@ -1,0 +1,24 @@
+name: Deploy DNS
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to ns1
+        run: |
+          curl -XPOST \
+            -H 'x-dns-application-token: ${{ secrets.DNS_DEPLOY_KEY }}' \
+            'http://ns1.dothqdns.net${{ secrets.DNS_DEPLOY_PATH }}'
+
+      - name: Deploy to ns2
+        run: |
+          curl -XPOST \
+            -H 'x-dns-application-token: ${{ secrets.DNS_DEPLOY_KEY }}' \
+            'http://ns2.dothqdns.net${{ secrets.DNS_DEPLOY_PATH }}'
