@@ -1,0 +1,33 @@
+;;
+;; Zone file for dothq.org
+;;
+
+;; SOA Record
+dothq.org                                  3600    IN      SOA     dothq.org root.dothq.org 2041502344 7200 3600 86400 3600
+
+;; A Records
+deploys.dothq.org.                         1       IN      A       95.217.177.219
+email.dothq.org.                           1       IN      A       135.181.104.241
+gitlab.dothq.org.                          1       IN      A       5.189.156.113
+mail.dothq.org.                            1       IN      A       195.201.24.74
+*.pages.dothq.org.                         1       IN      A       5.189.156.113
+pages.dothq.org.                           1       IN      A       5.189.156.113
+registry.gitlab.dothq.org.                 1       IN      A       5.189.156.113
+
+;; CNAME Records
+archive.dothq.org.                         1       IN      CNAME   cname.vercel-dns.com.
+developer.dothq.org.                       1       IN      CNAME   dothq.github.io.
+ftp.dothq.org.                             1       IN      CNAME   cname.vercel-dns.com.
+paste.dothq.org.                           1       IN      CNAME   dothq.github.io.
+s.dothq.org.                               1       IN      CNAME   cname.vercel-dns.com.
+
+;; MX Records
+dothq.org.                                 1       IN      MX      3600 email.dothq.org.
+
+;; TXT Records
+default._bimi.dothq.org.                   1       IN      TXT     "v=BIMI1; l=https://s.dothq.org/assets/icons/256x256.svg; a=;"
+_dmarc.dothq.org.                          1       IN      TXT     "v=DMARC1; p=quarantine; rua=mailto:contact+dmarcreports@dothq.org"
+dothq.org.                                 1       IN      TXT     "v=spf1 include:spf.protection.outlook.com mx ~all"
+email._domainkey.dothq.org.                1       IN      TXT     "v=DKIM1; h=sha256; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5UuKnrZcwPTR+PZSiil7C8stgqpD+1pz7XtiZIHjHtoL+tE1o85BO0d2QcX5E/H+6yKEGSeVkGFbqy5xJH6JwvsxC5NaYbTTDbqNV688Lcfy9kKAflm8vNku5wCwFxGO+SOs2gbK6VdDMF4yerCYkZ67FME3z+ZlB9gZo2I2bcL69An35h5lnXFxli4Oa0K0P+gQrNl/tYNKD2nLYsuS98FBVJ+iDTn8KBZ5uHQvH1Ula7QL90FiJQtGQVPSPOmCDsPfXxSDPPbsAA3t0QcW0dntwlFBwjYhdUBOrAtIobdXhBu8tMPx8+fqI5aryZViyK1AoiclSCPT+AVAxFcxRwIDAQAB"
+_github-challenge-dothq-org.dothq.org.     1       IN      TXT     "c67cbcce8e"
+_vercel.dothq.org.                         1       IN      TXT     "vc-domain-verify=dothq.org,275cb89fd9849ae87011"
