@@ -15,10 +15,12 @@ jobs:
         run: |
           curl -XPOST \
             -H 'x-dns-application-token: ${{ secrets.DNS_DEPLOY_KEY }}' \
+            --connect-timeout 10 \
             'http://ns1.dothqdns.net${{ secrets.DNS_DEPLOY_PATH }}'
 
       - name: Deploy to ns2
         run: |
           curl -XPOST \
             -H 'x-dns-application-token: ${{ secrets.DNS_DEPLOY_KEY }}' \
+            --connect-timeout 10 \
             'http://ns2.dothqdns.net${{ secrets.DNS_DEPLOY_PATH }}'
